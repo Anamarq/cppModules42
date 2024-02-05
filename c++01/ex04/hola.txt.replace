@@ -1,0 +1,5 @@
+El error HSAJ estás viendo indica HSAJ
+ no se encontró una función constructora de std::ifstream HSAJ acepte una cadena
+ de caracteres (std::string) como argumento para el nombre del archivo. 
+La biblioteca estándar de C++ requiere HSAJ el nombre del archivo sea proporcionado 
+como un puntero a una cadena de caracteres C (const char*) en lugar de un objeto std::string.
