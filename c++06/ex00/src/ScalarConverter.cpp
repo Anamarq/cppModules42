@@ -11,19 +11,21 @@
 /* ************************************************************************** */
 #include "../include/ScalarConverter.hpp"
 
+ScalarConverter::ScalarConverter(){}
+ScalarConverter::~ScalarConverter(){}
 // Definition of the static helper method outside the class
-bool ScalarConverter::convertToChar(const std::string& literal, char& charValue)
+bool ScalarConverter::convertToChar(const std::string& str, char& charValue)
 {
     //si pones 'a'
-    if (literal.length() == 3 && literal[0] == '\'' && literal[2] == '\'' && std::isprint(literal[1]) && !std::isdigit(literal[1]))
+    if (str.length() == 3 && str[0] == '\'' && str[2] == '\'' && std::isprint(str[1]) && !std::isdigit(str[1]))
     {
-        charValue = literal[1];
+        charValue = str[1];
         return true;
     }
     //si pones a
-    if (literal.size() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]))
+    if (str.size() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]))
     {
-        charValue = literal[0];
+        charValue = str[0];
         return true;
     }
     return false;
@@ -67,9 +69,8 @@ void ScalarConverter::convert(const std::string& str) {
     }
 
     
-
-
     // Attempt to convert to int
+    //print if conversion is succefull
     std::istringstream intStream(str);
     intStream >> intValue;
     if (!intStream.fail())

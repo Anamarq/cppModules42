@@ -26,12 +26,11 @@
 //
 //    return 0;
 //}
-int main(int argc, char* argv[]) {
-//std::cout << "char: " << static_cast<char>(23) << std::endl;
-//std::cout << "int: " << static_cast<int>(23) << std::endl;
-//std::cout << "float: " << static_cast<float>(23) << ".0f" << std::endl;
-//std::cout << "double: " << static_cast<double>(23) << ".0" << std::endl;
-    if (argc == 1) {
+int main(int argc, char* argv[])
+{
+
+    if (argc == 1)
+    {
         std::cout << "Error: no parameters\n" << "Usage: <program> <literal>" << std::endl;
         return 1;
     }

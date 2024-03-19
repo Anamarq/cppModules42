@@ -15,6 +15,7 @@ Serializer::Serializer() {}  // Constructor privado para evitar la instanciación
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
+	//e utiliza para convertir un tipo de puntero a otro tipo de puntero o para convertir un tipo de referencia a otro tipo de referencia
     return reinterpret_cast<uintptr_t>(ptr);
 }
 

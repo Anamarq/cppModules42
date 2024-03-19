@@ -47,6 +47,7 @@ Base* generate(void)
 //It prints the actual type of the object pointed to by p : "A", "B" or "C".
 void identify(Base* p)
 {
+	//devuelve un puntero nulo si la conversión no es válida
 	if (dynamic_cast<A*>(p)) //Si se puede convertir en A
 		std::cout << "Type: A" << std::endl;
 	else if (dynamic_cast<B*>(p)) //Si se puede convertir en B
@@ -60,7 +61,10 @@ void identify(Base* p)
 ////It prints the actual type of the object pointed to by p : "A", "B" or "C".Using a pointer
 ////inside this function is forbidden.
 
-void identify(Base& p) {
+void identify(Base& p)
+{
+	//dynamic_cast arrojará una excepción de tipo std::bad_cast si la conversión no es válida
+	//esto se hace cuando se utiliza dynamic_cast con referencias, ya que arroja excepciones en lugar de devolver un puntero nulo
 	try {
 		dynamic_cast<A&>(p);
 		std::cout << "Type: A" << std::endl;

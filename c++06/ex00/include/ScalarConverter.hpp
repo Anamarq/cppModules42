@@ -25,6 +25,8 @@ public:
     // Static method to convert the string representation of a C++ literal to various scalar types
     static void convert(const std::string& literal);
 private:
+    ScalarConverter();
+    ~ScalarConverter();
     // Helper method to convert to char
     static bool convertToChar(const std::string& literal, char& charValue);
 };
