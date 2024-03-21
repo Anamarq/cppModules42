@@ -1,4 +1,4 @@
-NAME = Templates
+NAME = Array
 
 # Directorios
 SRCDIR = ./src

@@ -1,4 +1,4 @@
-NAME = Templates
+NAME = Iter
 
 # Directorios
 SRCDIR = ./src

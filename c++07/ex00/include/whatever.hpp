@@ -18,21 +18,32 @@
 
 #include <iostream>
 
-template< typename T >
+//T es un tipo de dato genérico, lo que significa que puede ser cualquier tipo de dato válido en C++
+//swap: Swaps the values of two given arguments. Does not return anything.
+template <typename T> //Declaracion de plantilla
 void  swap(T& a, T& b) {
-    T tmp = a;
+    T c = a;
     a = b;
-    b = tmp;
+    b = c;
 }
-
+//min: Compares the two values passed in its arguments and returns the smallest
+//one. If the two of them are equal, then it returns the second one.
 template <typename T>
 T min(T a, T b) {
-    return (b < a) ? b : a;
+    //return (b < a) ? b : a;
+    if (b < a)
+        return b;
+    return a;
 }
 
+//max: Compares the two values passed in its arguments and returns the greatest one.
+//If the two of them are equal, then it returns the second one.
 template <typename T>
 T max(T a, T b) {
-    return (a < b) ? b : a;
+    //return (a < b) ? b : a;
+    if (b > a)
+        return b;
+    return a;
 }
 
 #endif
