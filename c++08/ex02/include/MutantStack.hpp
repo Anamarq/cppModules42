@@ -11,5 +11,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack>
-#include <iostream>
+#ifndef MUTANTSTACK_H
+# define MUTANTSTACK_H
+# include <stack>
+# include <iostream>
+
+template< typename T, class Container = std::deque< T > >
+class MutantStack : public std::stack<T, Container> {
+public:
+    typedef typename Container::iterator iterator;
+
+    MutantStack(void) {};
+    ~MutantStack(void) {};
+    iterator begin();
+    iterator end();
+};
+
+
+#include "MutantStack.tpp"
+#endif
