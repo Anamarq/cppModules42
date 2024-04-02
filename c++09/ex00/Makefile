@@ -1,4 +1,4 @@
-NAME = Easyfind
+NAME = btc
 
 # Directorios
 SRCDIR = ./src
