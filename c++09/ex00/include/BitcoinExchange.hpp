@@ -26,6 +26,7 @@ private:
     std::map<std::string, std::string> data;
 
     void readData(const std::string& namedata);
+    float getBitcoinChange(std::string date);
 
 public:
     BitcoinExchange();

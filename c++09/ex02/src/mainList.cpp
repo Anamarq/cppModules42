@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <list>
 #include <algorithm>
 #include <ctime>
 
@@ -20,28 +20,30 @@ public:
 };
 
 // Algoritmo de Ford-Johnson para ordenar números positivos
-void fordJohnson(std::vector<int>& numbers) {
-    std::vector<IndexNumberPair> pairs;
+void fordJohnson(std::list<int>& numbers) {
+    std::list<IndexNumberPair> pairs;
 
     // Paso 1: Crear pares (índice, número) y separarlos en listas L y S
-    for (size_t i = 0; i < numbers.size(); ++i) {
-        if (numbers[i] <= 0) continue;
-        pairs.push_back(IndexNumberPair(i, numbers[i]));
+    int index = 0;
+    for (std::list<int>::iterator it = numbers.begin(); it != numbers.end(); ++it, ++index) {
+        if (*it <= 0) continue;
+        pairs.push_back(IndexNumberPair(index, *it));
     }
 
     // Paso 2: Ordenar los pares según el número
-    std::sort(pairs.begin(), pairs.end(), CompareIndexNumberPairs());
+    pairs.sort(CompareIndexNumberPairs());
 
     // Paso 3: Reconstruir la secuencia ordenada
-    for (size_t i = 0; i < pairs.size(); ++i) {
-        numbers[i] = pairs[i].number;
+    std::list<int>::iterator it = numbers.begin();
+    for (std::list<IndexNumberPair>::iterator pair_it = pairs.begin(); pair_it != pairs.end(); ++pair_it, ++it) {
+        *it = pair_it->number;
     }
 }
 
 // Función para imprimir el contenido de un contenedor
-void printContainer(const std::vector<int>& container) {
-    for (size_t i = 0; i < container.size(); ++i) {
-        std::cout << container[i] << " ";
+void printContainer(const std::list<int>& container) {
+    for (std::list<int>::const_iterator it = container.begin(); it != container.end(); ++it) {
+        std::cout << *it << " ";
     }
     std::cout << std::endl;
 }
@@ -52,7 +54,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    std::vector<int> numbers;
+    std::list<int> numbers;
     for (int i = 1; i < argc; ++i) {
         numbers.push_back(std::atoi(argv[i]));
     }

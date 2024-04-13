@@ -20,4 +20,5 @@ int main(int argc, char* argv[])
 	}
 	(void)**argv;
 	BitcoinExchange exchange;
+	exchange.execute(argv[1]);
 }

@@ -1,4 +1,4 @@
-NAME = Span
+NAME = RPN
 
 # Directorios
 SRCDIR = ./src

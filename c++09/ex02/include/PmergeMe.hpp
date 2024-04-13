@@ -1,7 +1,8 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamarqu <anamarqu@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,29 +11,5 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SPAN_HPP
-#define SPAN_HPP
-
+#include <stack>
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
-
-class Span {
-public:
-	Span();
-	~Span();
-	Span(unsigned int _N);
-	Span(const Span& other);
-	Span& operator=(const Span& other);
-	void addNumber(int n);
-	void addNumbers(int n, int min, int max);
-	int shortestSpan();
-	int longestSpan();
-
-private:
-	unsigned int N;
-	std::vector<int> vec;
-};
-
-#endif

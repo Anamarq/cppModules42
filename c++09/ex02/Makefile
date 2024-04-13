@@ -1,4 +1,4 @@
-NAME = MutantStack
+NAME = PmergeMe
 
 # Directorios
 SRCDIR = ./src

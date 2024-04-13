@@ -10,33 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Span.hpp"
+#include "../include/RPN.hpp"
 
-int main()
+
+int main(int argc, char* argv[])
 {
-    try {
-        Span span(5);
-        span.addNumber(2);
-        span.addNumber(43);
-        span.addNumber(5);
-        span.addNumber(23);
-        span.addNumber(1);
-        std::cout << "longest span: " << span.longestSpan() << std::endl;
-        std::cout << "shortest span: " << span.shortestSpan() << std::endl;
-
-        Span span2(100);
-        span2.addNumbers(100, 1, 290);
-        std::cout << "longest span: " << span2.longestSpan() << std::endl;
-        std::cout << "shortest span: " << span2.shortestSpan() << std::endl;
-
-        Span span3(5);
-        span3.addNumbers(5, -10, 10);
-        std::cout << "longest span: " << span3.longestSpan() << std::endl;
-        std::cout << "shortest span: " << span3.shortestSpan() << std::endl;
-       
-        span3.addNumbers(5, -10, 10);
+    if (argc != 2)
+    {
+        std::cerr << "Error: Not expression" << std::endl;
+        return EXIT_FAILURE;
     }
-    catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
-    }
+
+    std::string expression = argv[1];
+    RPN rpn(expression);
+    int resultado = rpn.evaluateRPN();
+    std::cout << resultado << std::endl;
 }

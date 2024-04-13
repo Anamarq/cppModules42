@@ -1,8 +1,7 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anamarqu <anamarqu@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,21 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack>
+#ifndef RPN_HPP
+#define RPN_HPP
+
 #include <iostream>
+#include <stack>
+#include <sstream>
+#include <cstdlib>
 
-template <typename T>
-class MutantStack : public std::stack<T> {
+class RPN {
 public:
-
-    using std::stack<T>::stack;
-
-    using iterator = typename std::stack<T>::container_type::iterator;
-    using const_iterator = typename std::stack<T>::container_type::const_iterator;
-
-    iterator begin() { return std::stack<T>::c.begin(); }
-    iterator end() { return std::stack<T>::c.end(); }
-    const_iterator begin() const { return std::stack<T>::c.begin(); }
-    const_iterator end() const { return std::stack<T>::c.end(); }
+	RPN();
+	RPN(const std::string& exp);
+	~RPN();
+	RPN(const RPN& other);
+	RPN& operator=(const RPN& other);
+	int evaluateRPN();
+private:
+	std::string expression;
 };
 
+#endif
