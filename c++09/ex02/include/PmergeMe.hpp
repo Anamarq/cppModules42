@@ -11,5 +11,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stack>
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
+
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <ctime>
+#include <deque>
+#include <sstream>
+
+class PmergeMe {
+public:
+	PmergeMe();
+	PmergeMe(char* numbers[], int argc);
+	~PmergeMe();
+	PmergeMe(const PmergeMe& other);
+	PmergeMe& operator=(const PmergeMe& other);
+	void execute();
+private:
+	std::vector<int> numVec;
+	std::deque<int> numDeque;
+	double timeVec;
+	double timeDq;
+	int numElms;
+
+};
+
+
+#endif // !PMERGEME_HPP
